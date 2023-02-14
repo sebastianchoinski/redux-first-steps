@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import {addTask} from './redux/addlister'
 
 function App() {
+  const {todo} = useSelector((state) => state.todoReducer.todo)
+  const dispatch = useDispatch()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <button onClick={() => dispatch(addTask({"name": "XD", "age": 7}))}></button>
+        <p>{JSON.stringify(todo)}</p>
+      </div>
     </div>
   );
 }
