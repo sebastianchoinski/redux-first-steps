@@ -10,7 +10,8 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      state.todos = state.todos.push(action.payload)
+      console.log(action.payload);
+      state.todos.push(action.payload)
     },
     decrement: (state) => {
       state.value -= 1
